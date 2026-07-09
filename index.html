@@ -1,0 +1,1443 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Banda del Flashback · Experiencias Acústicas 2026</title>
+  <meta name="description" content="Propuesta de tres experiencias acústicas para La Banda del Flashback: MTV Unplugged Flashback, Latin Flashback Sessions y 90s Hits Acoustic." />
+  <meta property="og:title" content="La Banda del Flashback · Experiencias Acústicas 2026" />
+  <meta property="og:description" content="Tres experiencias mensuales con repertorios de 60 minutos, identidad visual y formato acústico." />
+  <meta property="og:image" content="/assets/logo-banda-flashback.png" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg2:#f6f6f6;
+      --ink:#111111;
+      --white:#ffffff;
+      --muted:rgba(17,17,17,.66);
+      --line:rgba(17,17,17,.12);
+      --accent:#111111;
+      --accent2:#444444;
+      --accent3:#777777;
+      --card:#ffffff;
+      --soft:#f7f7f7;
+      --shadow: 0 22px 60px rgba(17,17,17,.09);
+      --radius: 28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:#ffffff;
+      overflow-x:hidden;
+    }
+
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.18;
+      background-image:
+        linear-gradient(rgba(17,17,17,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px);
+      background-size:44px 44px;
+      mask-image:linear-gradient(to bottom, #000, transparent 80%);
+      z-index:0;
+    }
+
+    .noise{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      opacity:.055;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
+    }
+
+    a{color:inherit}
+    .page{position:relative; z-index:2}
+    .container{
+      width:min(1180px, calc(100% - 40px));
+      margin-inline:auto;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(18px);
+      background:rgba(255,255,255,.92);
+      border-bottom:1px solid rgba(31,35,40,.08);
+    }
+
+    .nav-inner{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:220px;
+    }
+
+    .brand img{
+      width:54px;
+      height:54px;
+      object-fit:contain;
+      filter:drop-shadow(0 10px 18px rgba(31,35,40,.16));
+    }
+
+    .brand span{
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:13px;
+      line-height:1.1;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      color:rgba(31,35,40,.68);
+      font-size:14px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      padding:9px 12px;
+      border-radius:999px;
+      transition:.2s;
+    }
+
+    .nav-links a:hover{
+      background:rgba(31,35,40,.07);
+      color:var(--ink);
+    }
+
+    .hero{
+      min-height:calc(100vh - 76px);
+      display:grid;
+      align-items:center;
+      padding:72px 0 90px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:52px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:9px 14px;
+      border:1px solid rgba(31,35,40,.12);
+      border-radius:999px;
+      background:#ffffff;
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#111111;
+      box-shadow:0 0 22px rgba(236,79,156,.9);
+    }
+
+    h1{
+      margin:24px 0 18px;
+      font-size:clamp(46px, 8vw, 102px);
+      line-height:.88;
+      letter-spacing:-.07em;
+      max-width:980px;
+    }
+
+    .gradient-text{
+      background:linear-gradient(105deg, #111111 0%, #333333 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:clamp(18px, 2vw, 22px);
+      line-height:1.55;
+      margin:0 0 28px;
+      max-width:680px;
+    }
+
+
+    .hero-logo-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      margin:26px 0 4px;
+      padding:14px 18px;
+      border:1px solid rgba(17,17,17,.12);
+      border-radius:999px;
+      background:#ffffff;
+      box-shadow:0 14px 38px rgba(17,17,17,.08);
+    }
+
+    .hero-logo-badge img{
+      width:62px;
+      height:62px;
+      object-fit:contain;
+    }
+
+    .hero-logo-badge strong{
+      display:block;
+      color:#111111;
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      line-height:1.15;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:13px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.01em;
+      border:1px solid rgba(31,35,40,.14);
+      background:#ffffff;
+      color:#111111;
+      transition:.2s ease;
+    }
+
+    .button.primary{
+      background:#111111;
+      color:#ffffff;
+      border:0;
+      box-shadow:0 18px 45px rgba(31,35,40,.16);
+    }
+
+    .button:hover{transform:translateY(-2px)}
+
+    .button.primary,
+    .price-block,
+    .black-pill{
+      background:#111111;
+      color:#ffffff;
+    }
+
+    .button.primary *,
+    .price-block *,
+    .black-pill *{
+      color:#ffffff;
+    }
+
+    .hero-card{
+      position:relative;
+      aspect-ratio: .78;
+      border-radius:42px;
+      padding:24px;
+      overflow:hidden;
+      background:
+        linear-gradient(150deg, rgba(236,79,156,.22), rgba(35,184,213,.18)),
+        rgba(255,255,255,.06);
+      border:1px solid rgba(31,35,40,.12);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card:after{
+      content:"";
+      position:absolute;
+      inset:24px;
+      border-radius:32px;
+      border:1px solid rgba(31,35,40,.12);
+      pointer-events:none;
+    }
+
+    .pick{
+      position:absolute;
+      inset:50px 70px auto;
+      margin:auto;
+      width:65%;
+      filter:drop-shadow(0 34px 40px rgba(0,0,0,.28));
+      opacity:.98;
+      z-index:2;
+    }
+
+    .hero-card .big{
+      position:absolute;
+      left:34px;
+      bottom:42px;
+      right:34px;
+      z-index:3;
+      font-size:clamp(38px, 4vw, 70px);
+      line-height:.9;
+      letter-spacing:-.055em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    .rings{
+      position:absolute;
+      width:760px;
+      height:760px;
+      border-radius:50%;
+      left:-180px;
+      top:250px;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 0 0 70px rgba(255,255,255,.025), inset 0 0 0 140px rgba(255,255,255,.02);
+    }
+
+    section{
+      padding:88px 0;
+      border-top:1px solid rgba(31,35,40,.09);
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:30px;
+      margin-bottom:32px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(34px, 4.4vw, 64px);
+      line-height:.95;
+      letter-spacing:-.055em;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      max-width:520px;
+      font-size:17px;
+    }
+
+    .overview{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .stat{
+      padding:24px;
+      border-radius:24px;
+      background:#ffffff;
+      border:1px solid rgba(31,35,40,.10);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:32px;
+      letter-spacing:-.04em;
+      margin-bottom:8px;
+    }
+
+    .stat span{
+      color:var(--muted);
+      line-height:1.4;
+    }
+
+    .experience{
+      position:relative;
+      overflow:hidden;
+      border-radius:40px;
+      border:1px solid rgba(31,35,40,.12);
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      margin-bottom:40px;
+    }
+
+    .experience.mtv{--accent:#111111; --accent2:#555555;}
+    .experience.latin{--accent:#111111; --accent2:#777777;}
+    .experience.nineties{--accent:#111111; --accent2:#777777;}
+
+    .experience-top{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      min-height:680px;
+    }
+
+    .kv{
+      position:relative;
+      overflow:hidden;
+      min-height:620px;
+      background:#111;
+    }
+
+    .kv img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(1.15) contrast(1.05);
+      opacity:.82;
+      transform:scale(1.02);
+    }
+
+
+
+    .kv-placeholder-logo{
+      width:150px;
+      height:150px;
+      object-fit:contain;
+      opacity:.42;
+      margin-bottom:18px;
+    }
+
+    .kv-placeholder-content{
+      position:relative;
+      z-index:2;
+      display:grid;
+      place-items:center;
+      text-align:center;
+    }
+
+    .kv-placeholder{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(135deg, #f5f5f5, #ffffff);
+      color:rgba(17,17,17,.42);
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
+    .kv-placeholder:before{
+      content:"";
+      position:absolute;
+      inset:38px;
+      border:1px dashed rgba(17,17,17,.22);
+      border-radius:22px;
+    }
+
+    .kv:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.44));
+    }
+
+    .kv:after{
+      content:"";
+      position:absolute;
+      inset:20px;
+      z-index:2;
+      border:1px solid rgba(255,255,255,.24);
+      border-radius:28px;
+      pointer-events:none;
+    }
+
+    .kv-label{
+      position:absolute;
+      z-index:3;
+      left:34px;
+      right:34px;
+      bottom:34px;
+    }
+
+    .kv-label small{
+      display:block;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .kv-label h3{
+      font-size:clamp(40px, 4.7vw, 76px);
+      line-height:.86;
+      letter-spacing:-.065em;
+      text-transform:uppercase;
+      margin:0;
+      color:#ffffff;
+      text-shadow:0 16px 40px rgba(0,0,0,.55);
+    }
+
+    .experience-copy{
+      padding:54px;
+      position:relative;
+    }
+
+    .month{
+      color:var(--accent);
+      font-weight:900;
+      letter-spacing:.11em;
+      font-size:13px;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+
+    .experience-copy h3{
+      font-size:clamp(36px, 4vw, 66px);
+      line-height:.93;
+      letter-spacing:-.055em;
+      margin:0 0 18px;
+    }
+
+    .lead{
+      color:rgba(31,35,40,.68);
+      font-size:18px;
+      line-height:1.58;
+      margin:0 0 26px;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:26px 0 30px;
+    }
+
+    .chip{
+      padding:9px 12px;
+      border-radius:999px;
+      background:color-mix(in srgb, var(--accent) 18%, transparent);
+      border:1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+      color:var(--ink);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .visual-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .visual-box{
+      border-radius:20px;
+      padding:18px;
+      background:#fafafa;
+      border:1px solid rgba(31,35,40,.10);
+    }
+
+    .visual-box b{
+      display:block;
+      margin-bottom:8px;
+      color:var(--ink);
+    }
+
+    .visual-box span{
+      color:var(--muted);
+      line-height:1.45;
+      font-size:14px;
+    }
+
+    .setlist{
+      padding:0 54px 54px;
+    }
+
+    .setlist h4{
+      margin:0 0 20px;
+      font-size:26px;
+      letter-spacing:-.03em;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:22px;
+      background:#ffffff;
+      border:1px solid rgba(31,35,40,.10);
+    }
+
+    th, td{
+      padding:14px 16px;
+      text-align:left;
+      border-bottom:1px solid rgba(31,35,40,.08);
+      vertical-align:top;
+    }
+
+    th{
+      color:rgba(31,35,40,.58);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      background:rgba(31,35,40,.045);
+    }
+
+    td{
+      color:rgba(31,35,40,.86);
+      font-size:14px;
+      line-height:1.35;
+    }
+
+    tr:last-child td{border-bottom:0}
+
+    .spotify-link{
+      display:inline-grid;
+      place-items:center;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      text-decoration:none;
+      color:#ffffff;
+      background:#111111;
+      border:1.5px solid #111111;
+      box-shadow:none;
+      transition:.2s ease;
+    }
+
+    .spotify-link:hover{
+      transform:translateY(-1px);
+      color:#111111;
+      background:#ffffff;
+    }
+
+    .spotify-link span{
+      display:inline-block;
+      font-size:10px;
+      line-height:1;
+      padding-left:2px;
+      color:inherit;
+    }
+
+    td:first-child{
+      color:var(--accent);
+      font-weight:900;
+      width:54px;
+    }
+
+    td:last-child, th:last-child{
+      text-align:center;
+      width:86px;
+    }
+
+    .closing{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .card{
+      border-radius:28px;
+      background:#ffffff;
+      border:1px solid rgba(31,35,40,.10);
+      padding:28px;
+    }
+
+    .card h3{
+      margin:0 0 14px;
+      font-size:28px;
+      letter-spacing:-.035em;
+    }
+
+    .card p, .card li{
+      color:var(--muted);
+      line-height:1.55;
+    }
+
+    .card ul{
+      margin:0;
+      padding-left:20px;
+    }
+
+
+    .pricing-card{
+      display:grid;
+      grid-template-columns:.75fr 1.25fr;
+      gap:28px;
+      align-items:stretch;
+      border-radius:34px;
+      border:1px solid rgba(17,17,17,.12);
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .price-block{
+      display:grid;
+      place-items:center;
+      padding:42px 28px;
+      background:#111111;
+      color:#ffffff;
+      text-align:center;
+    }
+
+    .price-block span{
+      display:block;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:12px;
+      color:rgba(255,255,255,.68);
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .price-block strong{
+      display:block;
+      font-size:clamp(58px, 8vw, 100px);
+      line-height:.9;
+      letter-spacing:-.07em;
+    }
+
+    .price-block small{
+      display:block;
+      margin-top:10px;
+      color:rgba(255,255,255,.7);
+      font-weight:700;
+    }
+
+    .includes{
+      padding:38px;
+    }
+
+    .includes h3{
+      margin:0 0 18px;
+      font-size:32px;
+      letter-spacing:-.04em;
+    }
+
+    .includes ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .includes li{
+      padding:13px 14px;
+      border:1px solid rgba(17,17,17,.1);
+      border-radius:16px;
+      color:rgba(17,17,17,.76);
+      background:#fafafa;
+      line-height:1.35;
+    }
+
+    .includes li:before{
+      content:"✓";
+      font-weight:900;
+      color:#111111;
+      margin-right:8px;
+    }
+
+
+
+
+    .decor-guide{
+      margin-top:26px;
+      border:1px solid rgba(17,17,17,.12);
+      border-radius:24px;
+      background:#ffffff;
+      padding:26px;
+      box-shadow:0 16px 40px rgba(17,17,17,.05);
+    }
+
+    .decor-guide h4{
+      margin:0 0 10px;
+      font-size:26px;
+      letter-spacing:-.035em;
+    }
+
+    .decor-note{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+
+    .decor-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .decor-item{
+      border:1px solid rgba(17,17,17,.10);
+      border-radius:18px;
+      background:#fafafa;
+      padding:16px;
+    }
+
+    .decor-item b{
+      display:block;
+      margin-bottom:7px;
+      color:#111111;
+    }
+
+    .decor-item span{
+      display:block;
+      color:var(--muted);
+      line-height:1.45;
+      font-size:14px;
+    }
+
+    .responsibility-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .responsibility-card{
+      border:1px solid rgba(17,17,17,.12);
+      border-radius:24px;
+      background:#ffffff;
+      padding:24px;
+      box-shadow:0 16px 40px rgba(17,17,17,.05);
+    }
+
+    .responsibility-card h3{
+      margin:0 0 12px;
+      font-size:24px;
+      letter-spacing:-.035em;
+    }
+
+    .responsibility-card ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .responsibility-card li{margin-bottom:8px;}
+
+    .comms-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .comms-card{
+      border:1px solid rgba(17,17,17,.12);
+      background:#ffffff;
+      border-radius:28px;
+      padding:28px;
+      box-shadow:0 16px 44px rgba(17,17,17,.06);
+    }
+
+    .comms-card h3{
+      margin:0 0 14px;
+      font-size:28px;
+      letter-spacing:-.04em;
+    }
+
+    .comms-card p{
+      color:var(--muted);
+      line-height:1.55;
+      margin:0;
+    }
+
+    .followers{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .follower-box{
+      border:1px solid rgba(17,17,17,.10);
+      border-radius:18px;
+      padding:16px;
+      background:#fafafa;
+    }
+
+    .follower-box strong{
+      display:block;
+      font-size:24px;
+      letter-spacing:-.04em;
+      margin-bottom:5px;
+    }
+
+    .follower-box span{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.35;
+    }
+
+    .timeline{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:150px 1fr;
+      gap:18px;
+      align-items:start;
+      padding:18px;
+      border:1px solid rgba(17,17,17,.10);
+      border-radius:22px;
+      background:#ffffff;
+    }
+
+    .timeline-item b{
+      display:block;
+      font-size:14px;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      color:#111111;
+    }
+
+    .timeline-item h4{
+      margin:0 0 8px;
+      font-size:22px;
+      letter-spacing:-.035em;
+    }
+
+    .timeline-item p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .content-table{
+      margin-top:24px;
+    }
+
+    footer{
+      padding:44px 0;
+      color:rgba(31,35,40,.58);
+      text-align:center;
+      border-top:1px solid rgba(31,35,40,.09);
+    }
+
+    @media (max-width: 920px){
+      .nav-links{display:none}
+      .hero-grid, .experience-top, .closing, .pricing-card, .comms-grid, .responsibility-grid, .decor-grid{grid-template-columns:1fr}
+      .overview{grid-template-columns:1fr 1fr}
+      .hero-card{min-height:560px}
+      .experience-copy, .setlist{padding:30px}
+      .setlist{overflow-x:auto}
+      table{min-width:760px}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+    }
+
+    @media (max-width: 620px){
+      .container{width:min(100% - 24px, 1180px)}
+      .overview, .visual-grid, .includes ul, .followers, .timeline-item{grid-template-columns:1fr}
+      .hero{padding-top:42px}
+      section{padding:62px 0}
+      .brand span{font-size:11px}
+      .hero-card{min-height:470px}
+      .pick{width:76%; inset:44px 40px auto}
+      .hero-card .big{font-size:42px}
+    }
+
+    @media print{
+      .nav, .hero-actions{display:none}
+      body{background:#080812}
+      section{break-inside:avoid}
+      .experience{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="page">
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img src="./assets/logo-banda-flashback.png" alt="Logo Banda del Flashback">
+          <span>Banda del<br>Flashback</span>
+        </div>
+        <div class="nav-links">
+          <a href="#concepto">Concepto</a>
+          <a href="#mtv">MTV Unplugged</a>
+          <a href="#latin">Latin Sessions</a>
+          <a href="#90s">90s Hits</a>
+          <a href="#comunicacion">Comunicación</a>
+          <a href="#inversion">Inversión</a>
+          <a href="#produccion">Producción</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Propuesta de experiencias acústicas · 2026</div>
+          <h1><span class="gradient-text">La Banda del Flashback</span><br>en formato acústico</h1>
+          <p>
+            Tres experiencias mensuales, cada una con identidad visual, cantante principal, repertorio propio e inversión definida por show.
+            Una propuesta diseñada para presentar shows de 60 minutos con guitarra, teclados, voz y secuencias de bajo y percusión.
+          </p>
+
+          <div class="hero-logo-badge">
+            <img src="./assets/logo-banda-flashback.png" alt="Logo La Banda del Flashback">
+            <strong>La Banda del<br>Flashback</strong>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#experiencias">Ver experiencias</a>
+            <a class="button" href="#produccion">Resumen de producción</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Visual principal">
+          <div class="rings"></div>
+          <img class="pick" src="./assets/logo-banda-flashback.png" alt="Logo Banda del Flashback">
+          <div class="big">80s<br>90s<br>00s</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="concepto">
+      <div class="container">
+        <div class="section-head">
+          <h2>Formato base</h2>
+          <p>El mismo formato técnico se transforma cada mes mediante repertorio, vocalista, cromática, iluminación, vestuario y narrativa escénica.</p>
+        </div>
+        <div class="overview">
+          <div class="stat"><strong>3</strong><span>experiencias diferentes entre sí</span></div>
+          <div class="stat"><strong>60'</strong><span>duración aproximada por show</span></div>
+          <div class="stat"><strong>14</strong><span>canciones por repertorio</span></div>
+          <div class="stat"><strong>3x</strong><span>presentaciones por mes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencias">
+      <div class="container">
+        <div class="section-head">
+          <h2>Experiencias propuestas</h2>
+          <p>Se priorizan canciones conocidas, adaptables al formato acústico y coherentes con la tesitura del cantante de cada mes.</p>
+        </div>
+
+        <article class="experience mtv" id="mtv">
+          <div class="experience-top">
+            <div class="kv">
+              <img src="./assets/kv-mtv-unplugged-final.png" alt="Key visual de referencia MTV Unplugged Flashback">
+              <div class="kv-label">
+                <small>Septiembre 2026</small>
+                <h3>MTV Unplugged<br>Flashback</h3>
+              </div>
+            </div>
+            <div class="experience-copy">
+              <div class="month">Experiencia 01 · Cantante masculino · rango medio</div>
+              <h3>Una sesión íntima con clásicos reinterpretados.</h3>
+              <p class="lead">
+                Inspirada en los grandes acústicos de los 90s y 00s. El show debe sentirse como una grabación especial:
+                cálido, emocional, cercano y con estética premium. El repertorio evita exigir registros demasiado agudos, se concentra en clásicos internacionales y permite adaptar tonos para una voz masculina media.
+              </p>
+              <div class="chips">
+                <span class="chip">Íntimo</span>
+                <span class="chip">Nostálgico</span>
+                <span class="chip">Premium</span>
+                <span class="chip">Pop rock acústico</span>
+              </div>
+              <div class="visual-grid">
+                <div class="visual-box"><b>Paleta</b><span>Azul profundo, magenta, violeta, negro y acentos cálidos de escenario.</span></div>
+                <div class="visual-box"><b>Escena</b><span>Guitarra como protagonista, luz cenital, textura de poster musical y grano vintage.</span></div>
+                <div class="visual-box"><b>Vestuario</b><span>Negro, denim oscuro, chaqueta liviana, estética relajada de concierto acústico.</span></div>
+                <div class="visual-box"><b>Frase guía</b><span>Los clásicos que marcaron tu vida, en una versión íntima y acústica.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="setlist">
+            <h4>Repertorio sugerido · 60 minutos</h4>
+            <table>
+              <thead><tr><th>#</th><th>Canción</th><th>Artista original</th><th>Enfoque vocal / arreglo</th><th>Escuchar</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Wonderwall</td><td>Oasis</td><td>Apertura reconocible, cómoda para voz masculina media.</td><td><a class="spotify-link" href="https://open.spotify.com/track/1qPbGZqppFwLwcBC1JQ6Vr" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Wonderwall en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>2</td><td>Drive</td><td>Incubus</td><td>Groove suave con bajo secuenciado y guitarra cálida.</td><td><a class="spotify-link" href="https://open.spotify.com/track/02IfX3fEpPbML6gdoaGz3j" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Drive en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>3</td><td>Losing My Religion</td><td>R.E.M.</td><td>Registro medio, ideal para arreglo acústico.</td><td><a class="spotify-link" href="https://open.spotify.com/track/31AOj9sFz2gM0O3hMARRBx" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Losing My Religion en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>4</td><td>With or Without You</td><td>U2</td><td>Momento emocional y expansivo.</td><td><a class="spotify-link" href="https://open.spotify.com/track/6ADSaE87h8Y3lccZlBJdXH" target="_blank" rel="noopener noreferrer" aria-label="Escuchar With or Without You en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>5</td><td>Creep</td><td>Radiohead</td><td>Adaptar tono para que el clímax no fuerce la voz.</td><td><a class="spotify-link" href="https://open.spotify.com/track/70LcF31zb1H0PyJoS1Sx1r" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Creep en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>6</td><td>Wherever You Will Go</td><td>The Calling</td><td>Pop rock masculino, muy coreable.</td><td><a class="spotify-link" href="https://open.spotify.com/track/5QpaGzWp0hwB5faV8dkbAz" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Wherever You Will Go en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>7</td><td>I’ll Be There for You</td><td>Bon Jovi</td><td>Versión acústica más baja y emocional.</td><td><a class="spotify-link" href="https://open.spotify.com/track/07HqIg8BnB1lJElnw2ZiSR" target="_blank" rel="noopener noreferrer" aria-label="Escuchar I’ll Be There for You en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>8</td><td>Iris</td><td>Goo Goo Dolls</td><td>Gran punto alto emocional; tono adaptable.</td><td><a class="spotify-link" href="https://open.spotify.com/track/6Qyc6fS4DsZjB2mRW9DsQs" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Iris en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>9</td><td>More Than Words</td><td>Extreme</td><td>Momento íntimo con guitarra protagonista.</td><td><a class="spotify-link" href="https://open.spotify.com/track/1gVgkQFOKa8Wc1HYsJtPdH" target="_blank" rel="noopener noreferrer" aria-label="Escuchar More Than Words en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>10</td><td>Don’t Look Back in Anger</td><td>Oasis</td><td>Momento de público, ideal para cantar juntos.</td><td><a class="spotify-link" href="https://open.spotify.com/track/7ppPZa3TRUSGKaks9wH7VT" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Don’t Look Back in Anger en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>11</td><td>Yellow</td><td>Coldplay</td><td>Momento cálido y emocional, cómodo para voz masculina media.</td><td><a class="spotify-link" href="https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Yellow en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>12</td><td>High and Dry</td><td>Radiohead</td><td>Versión íntima y elegante, ideal para textura acústica.</td><td><a class="spotify-link" href="https://open.spotify.com/track/2a1iMaoWQ5MnvLFBDv4qkf" target="_blank" rel="noopener noreferrer" aria-label="Escuchar High and Dry en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>13</td><td>Save Tonight</td><td>Eagle-Eye Cherry</td><td>Rítmica, nostálgica y muy reconocible en formato unplugged.</td><td><a class="spotify-link" href="https://open.spotify.com/track/1t2Hq2WIBcZINOEnK6mdJG" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Save Tonight en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>14</td><td>Use Somebody</td><td>Kings of Leon</td><td>Cierre potente, emocional y adaptable a rango medio.</td><td><a class="spotify-link" href="https://open.spotify.com/track/5VGlqQANWDKJFl0MBG3sg2" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Use Somebody en Spotify"><span>▶</span></a></td></tr>
+              </tbody>
+            </table>
+            <div class="decor-guide">
+              <h4>Guía de decoración y ambientación</h4>
+              <p class="decor-note"><b>Condición del espacio:</b> al realizarse en la plaza central de un centro comercial, no se debe depender de luz tenue. La ambientación debe construirse con objetos escénicos, textura, capas visuales y puntos de luz decorativa que funcionen aun con iluminación general encendida.</p>
+              <div class="decor-grid">
+                <div class="decor-item"><b>Escena principal</b><span>Sofá Chesterfield o sillones vintage, alfombra tipo persa, mesa baja, banquillo central para el cantante y micrófono de estética clásica.</span></div>
+                <div class="decor-item"><b>Instrumentos visibles</b><span>Guitarra en pedestal, teclado con soporte sobrio y atriles negros. Mantener el montaje limpio para que se perciba como sesión acústica premium.</span></div>
+                <div class="decor-item"><b>Elementos decorativos</b><span>Lámpara de piso, velas LED, faroles, plantas altas y cajas tipo vintage. Evitar velas reales por seguridad y operación del centro comercial.</span></div>
+                <div class="decor-item"><b>Fondo / branding</b><span>Usar el Key Visual MTV Unplugged Flashback en pantalla, backing o tótem lateral. El logo de Scala debe mantenerse como anfitrión, no como repetición excesiva.</span></div>
+                <div class="decor-item"><b>Color y textura</b><span>Negro, cuero, madera, beige, rojo oscuro y acentos ámbar. Como la plaza estará iluminada, priorizar materiales con presencia visual sobre efectos de luz.</span></div>
+                <div class="decor-item"><b>Iluminación posible</b><span>Usar luces cálidas decorativas tipo guirnalda, lámparas y pequeños uplights cálidos como complemento visual, no como fuente principal de atmósfera.</span></div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="experience latin" id="latin">
+          <div class="experience-top">
+            <div class="kv">
+              <div class="kv-placeholder"><div class="kv-placeholder-content"><img class="kv-placeholder-logo" src="./assets/logo-banda-flashback.png" alt="Logo La Banda del Flashback"><span>Key Visual pendiente</span></div></div>
+              <div class="kv-label">
+                <small>Octubre 2026</small>
+                <h3>Latin Flashback<br>Sessions</h3>
+              </div>
+            </div>
+            <div class="experience-copy">
+              <div class="month">Experiencia 02 · Cantante femenina</div>
+              <h3>Una noche latina, cálida y muy cantable.</h3>
+              <p class="lead">
+                Una sesión acústica de clásicos latinos de los 80s, 90s y 00s, pensada para una cantante femenina con buena interpretación.
+                La experiencia debe sentirse como una terraza musical al atardecer: cercana, romántica, elegante y emocional.
+              </p>
+              <div class="chips">
+                <span class="chip">Latina</span>
+                <span class="chip">Romántica</span>
+                <span class="chip">Cálida</span>
+                <span class="chip">Participativa</span>
+              </div>
+              <div class="visual-grid">
+                <div class="visual-box"><b>Paleta</b><span>Atardecer tropical, naranja, coral, dorado, vino y madera cálida.</span></div>
+                <div class="visual-box"><b>Escena</b><span>Terraza acústica, luces cálidas, guitarra, percusión latina visual y ambiente lounge.</span></div>
+                <div class="visual-box"><b>Vestuario</b><span>Negro, crema, vino, dorado suave o tonos tierra con presencia elegante.</span></div>
+                <div class="visual-box"><b>Frase guía</b><span>Las canciones que cantamos todos, en una sesión íntima y latina.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="setlist">
+            <h4>Repertorio sugerido · 60 minutos</h4>
+            <table>
+              <thead><tr><th>#</th><th>Canción</th><th>Artista original</th><th>Enfoque vocal / arreglo</th><th>Escuchar</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Eres</td><td>Café Tacvba</td><td>Apertura emocional, funciona muy bien en voz femenina.</td><td><a class="spotify-link" href="https://open.spotify.com/track/6kdCN6gTWLcLxmLXoUcwuI" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Eres en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>2</td><td>Rayando el Sol</td><td>Maná</td><td>Muy reconocible y adaptable.</td><td><a class="spotify-link" href="https://open.spotify.com/track/4Ofg5uuH7qqDIXpAJMpXZV" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Rayando el Sol en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>3</td><td>Vivir Sin Aire</td><td>Maná</td><td>Balada latina ideal para interpretación femenina.</td><td><a class="spotify-link" href="https://open.spotify.com/track/3G9RQLOSjsXVUDyQSv2PQR" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Vivir Sin Aire en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>4</td><td>Trátame Suavemente</td><td>Soda Stereo</td><td>Íntima y elegante en tono adaptado.</td><td><a class="spotify-link" href="https://open.spotify.com/track/0uaLuGlIVIpP57GgqbTbmO" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Trátame Suavemente en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>5</td><td>Cuando Pase el Temblor</td><td>Soda Stereo</td><td>Atmosférica, suave, con teclados.</td><td><a class="spotify-link" href="https://open.spotify.com/track/79jHbl16mPsCzgozwFw9Dg" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Cuando Pase el Temblor en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>6</td><td>Lamento Boliviano</td><td>Enanitos Verdes</td><td>Versión acústica potente en tonalidad femenina.</td><td><a class="spotify-link" href="https://open.spotify.com/track/6Pur3hWy6Nzc27ilmsp5HA" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Lamento Boliviano en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>7</td><td>Antología</td><td>Shakira</td><td>Gran momento vocal y emocional.</td><td><a class="spotify-link" href="https://open.spotify.com/track/0KAqMRUSZwzG3dZLdDA4eH" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Antología en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>8</td><td>Inevitable</td><td>Shakira</td><td>Más intensa, ideal para subir energía.</td><td><a class="spotify-link" href="https://open.spotify.com/track/78dbqYDvx6FOefROApu9w0" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Inevitable en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>9</td><td>Limón y Sal</td><td>Julieta Venegas</td><td>Ligera, dulce y muy natural.</td><td><a class="spotify-link" href="https://open.spotify.com/track/7dITAq1YP5e0kTcaDq4YWI" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Limón y Sal en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>10</td><td>Me Voy</td><td>Julieta Venegas</td><td>Pop latino acústico con buena dinámica.</td><td><a class="spotify-link" href="https://open.spotify.com/track/100Tm6z29RfHTdUQ6NIs0s" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Me Voy en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>11</td><td>Corazón Espinado</td><td>Santana / Maná</td><td>Groove latino con secuencia de percusión.</td><td><a class="spotify-link" href="https://open.spotify.com/track/1fuVczyfkPHtvqhNkBDEhF" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Corazón Espinado en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>12</td><td>A Dios le Pido</td><td>Juanes</td><td>Energía positiva y participativa.</td><td><a class="spotify-link" href="https://open.spotify.com/track/0JHM9KIq6oUPd4gHxMlB0T" target="_blank" rel="noopener noreferrer" aria-label="Escuchar A Dios le Pido en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>13</td><td>Bonito</td><td>Jarabe de Palo</td><td>Optimista y cálida.</td><td><a class="spotify-link" href="https://open.spotify.com/track/2Dw0x1qj6mTgbu9Sl67sCw" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Bonito en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>14</td><td>De Música Ligera</td><td>Soda Stereo</td><td>Cierre masivo en versión femenina pop-rock.</td><td><a class="spotify-link" href="https://open.spotify.com/track/2lpIh6Gr6HYjg1CFBaucS5" target="_blank" rel="noopener noreferrer" aria-label="Escuchar De Música Ligera en Spotify"><span>▶</span></a></td></tr>
+              </tbody>
+            </table>
+            <div class="decor-guide">
+              <h4>Guía de decoración y ambientación</h4>
+              <p class="decor-note"><b>Condición del espacio:</b> la plaza del centro comercial estará iluminada, por lo que la experiencia debe sentirse cálida y latina a través del mobiliario, color, vegetación y detalles de terraza, no por oscuridad.</p>
+              <div class="decor-grid">
+                <div class="decor-item"><b>Escena principal</b><span>Ambiente tipo terraza lounge: butacas o sillas en fibras naturales, mesa auxiliar, alfombra clara o terracota y micrófono central.</span></div>
+                <div class="decor-item"><b>Elementos latinos</b><span>Plantas tropicales, hojas grandes, jarrones de barro, textiles terracota, cojines crema/vino y detalles artesanales sobrios.</span></div>
+                <div class="decor-item"><b>Instrumentos visibles</b><span>Guitarra acústica, teclado y elementos de percusión decorativa como bongó o conga, aunque la base esté secuenciada.</span></div>
+                <div class="decor-item"><b>Fondo / branding</b><span>Key Visual de Latin Flashback Sessions en pantalla o tótem. Puede incluir recursos de atardecer, textura cálida y una composición más romántica.</span></div>
+                <div class="decor-item"><b>Color y textura</b><span>Crema, terracota, vino, dorado suave, madera y fibras naturales. Evitar saturación para mantener lectura premium dentro del centro comercial.</span></div>
+                <div class="decor-item"><b>Iluminación posible</b><span>Guirnaldas cálidas, lámparas de mesa con pantalla de fibra y velas LED. Sirven como decoración visible aunque no oscurezcan el espacio.</span></div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="experience nineties" id="90s">
+          <div class="experience-top">
+            <div class="kv">
+              <div class="kv-placeholder"><div class="kv-placeholder-content"><img class="kv-placeholder-logo" src="./assets/logo-banda-flashback.png" alt="Logo La Banda del Flashback"><span>Key Visual pendiente</span></div></div>
+              <div class="kv-label">
+                <small>Noviembre 2026</small>
+                <h3>90s Hits<br>Acoustic</h3>
+              </div>
+            </div>
+            <div class="experience-copy">
+              <div class="month">Experiencia 03 · Cantante femenina</div>
+              <h3>Los hits noventeros en versión acústica.</h3>
+              <p class="lead">
+                Una experiencia dedicada a canciones globales de los 90s, con una cantante femenina al frente.
+                Es más pop, fresca y visualmente retro que MTV Unplugged, con estética de cassette, radio hits y nostalgia noventera.
+              </p>
+              <div class="chips">
+                <span class="chip">90s</span>
+                <span class="chip">Pop</span>
+                <span class="chip">Femenina</span>
+                <span class="chip">Cassette mood</span>
+              </div>
+              <div class="visual-grid">
+                <div class="visual-box"><b>Paleta</b><span>Madera vintage, rojo, crema, ámbar, sombras cálidas y textura de póster.</span></div>
+                <div class="visual-box"><b>Escena</b><span>Guitarra acústica, fondo rústico, tipografía grande y estética de compilado 90s.</span></div>
+                <div class="visual-box"><b>Vestuario</b><span>Denim, negro, blanco, chaqueta vintage o look pop alternativo.</span></div>
+                <div class="visual-box"><b>Frase guía</b><span>Los hits de los 90s que todos cantamos, ahora en versión acústica.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="setlist">
+            <h4>Repertorio sugerido · 60 minutos</h4>
+            <table>
+              <thead><tr><th>#</th><th>Canción</th><th>Artista original</th><th>Enfoque vocal / arreglo</th><th>Escuchar</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Torn</td><td>Natalie Imbruglia</td><td>Apertura perfecta para voz femenina pop.</td><td><a class="spotify-link" href="https://open.spotify.com/track/0KDaN0HL3TcJVTbXlQCEsS" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Torn en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>2</td><td>What’s Up?</td><td>4 Non Blondes</td><td>Himno noventero, muy cantable y adaptable a voz femenina.</td><td><a class="spotify-link" href="https://open.spotify.com/track/0jWgAnTrNZmOGmqgvHhZEm" target="_blank" rel="noopener noreferrer" aria-label="Escuchar What’s Up? en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>3</td><td>Stay (I Missed You)</td><td>Lisa Loeb</td><td>Pop acústico femenino, íntimo y reconocible.</td><td><a class="spotify-link" href="https://open.spotify.com/track/17CPezzLWzvGfpZW6X8XT0" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Stay I Missed You en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>4</td><td>Don’t Speak</td><td>No Doubt</td><td>Balada pop-rock femenina clave.</td><td><a class="spotify-link" href="https://open.spotify.com/track/6urCAbunOQI4bLhmGpX7iS" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Don’t Speak en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>5</td><td>Ironic</td><td>Alanis Morissette</td><td>Muy noventera y cómoda para rango medio.</td><td><a class="spotify-link" href="https://open.spotify.com/track/4oGTdOClZUxcM2H3UmXlwL" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Ironic en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>6</td><td>You Learn</td><td>Alanis Morissette</td><td>Energía acústica y narrativa.</td><td><a class="spotify-link" href="https://open.spotify.com/track/1HsbGJnOXPWfocSS6FoR60" target="_blank" rel="noopener noreferrer" aria-label="Escuchar You Learn en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>7</td><td>Kiss Me</td><td>Sixpence None the Richer</td><td>Dulce, ligera, reconocible.</td><td><a class="spotify-link" href="https://open.spotify.com/track/754kgU5rWscRTfvlsuEwFp" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Kiss Me en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>8</td><td>There She Goes</td><td>The La’s / Sixpence None the Richer</td><td>Pop acústico fresco.</td><td><a class="spotify-link" href="https://open.spotify.com/track/43z6scIZU2QcEieMQFAJRG" target="_blank" rel="noopener noreferrer" aria-label="Escuchar There She Goes en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>9</td><td>Baby One More Time</td><td>Britney Spears</td><td>Reversión acústica elegante y sorpresiva.</td><td><a class="spotify-link" href="https://open.spotify.com/track/3MjUtNVVq3C8Fn0MP3zhXa" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Baby One More Time en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>10</td><td>I Want It That Way</td><td>Backstreet Boys</td><td>Adaptada a voz femenina; momento coreable.</td><td><a class="spotify-link" href="https://open.spotify.com/track/47BBI51FKFwOMlIiX6m8ya" target="_blank" rel="noopener noreferrer" aria-label="Escuchar I Want It That Way en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>11</td><td>As Long As You Love Me</td><td>Backstreet Boys</td><td>Pop 90s con groove suave.</td><td><a class="spotify-link" href="https://open.spotify.com/track/00WvmRXTkPBZNhhRK3xfdy" target="_blank" rel="noopener noreferrer" aria-label="Escuchar As Long As You Love Me en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>12</td><td>Believe</td><td>Cher</td><td>Versión acústica lounge.</td><td><a class="spotify-link" href="https://open.spotify.com/track/2goLsvvODILDzeeiT4dAoR" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Believe en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>13</td><td>Wonderwall</td><td>Oasis</td><td>Adaptable a voz femenina, momento colectivo.</td><td><a class="spotify-link" href="https://open.spotify.com/track/1qPbGZqppFwLwcBC1JQ6Vr" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Wonderwall en Spotify"><span>▶</span></a></td></tr>
+                <tr><td>14</td><td>Good Riddance (Time of Your Life)</td><td>Green Day</td><td>Cierre acústico, nostálgico y muy adecuado para formato unplugged.</td><td><a class="spotify-link" href="https://open.spotify.com/track/6ORqU0bHbVCRjXm9AjyHyZ" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Good Riddance Time of Your Life en Spotify"><span>▶</span></a></td></tr>
+              </tbody>
+            </table>
+            <div class="decor-guide">
+              <h4>Guía de decoración y ambientación</h4>
+              <p class="decor-note"><b>Condición del espacio:</b> al no poder apagar la iluminación general, la estética 90s debe resolverse con gráfica, color, objetos icónicos y contraste visual, no con luz de discoteca.</p>
+              <div class="decor-grid">
+                <div class="decor-item"><b>Escena principal</b><span>Set tipo lounge pop: sofá o banca simple, mesa baja, micrófono central y pantalla/fondo con patrón gráfico inspirado en los 90s.</span></div>
+                <div class="decor-item"><b>Elementos 90s</b><span>Cassettes, CD grandes decorativos, boombox, stickers, patrón de círculos concéntricos y tótems con frases de hits noventeros.</span></div>
+                <div class="decor-item"><b>Instrumentos visibles</b><span>Teclado protagonista, guitarra discreta si aplica, micrófono y atril. Evitar que la guitarra sea el símbolo principal de esta experiencia.</span></div>
+                <div class="decor-item"><b>Fondo / branding</b><span>Key Visual 90s Hits Acoustic con cromática distinta a MTV y Latin. Usar gráfica de círculos, cassette/CD y tipografía grande.</span></div>
+                <div class="decor-item"><b>Color y textura</b><span>Base blanca/negra con acentos cyan, fucsia, morado o gris plata. Debe sentirse pop y diferente, pero presentable para Scala.</span></div>
+                <div class="decor-item"><b>Iluminación posible</b><span>Pequeños tubos LED decorativos o letrero tipo neon como objeto de set. No depender de efectos oscuros; usar luz como acento fotográfico.</span></div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+
+    <section id="comunicacion">
+      <div class="container">
+        <div class="section-head">
+          <h2>Plan de comunicación</h2>
+          <p>Plan orgánico de contenidos con un mes de anticipación, accionado de forma coordinada por Scala, La Banda del Flashback y sus integrantes.</p>
+        </div>
+
+        <div class="comms-grid">
+          <div class="comms-card">
+            <h3>Objetivo</h3>
+            <p>Generar expectativa, recordación y asistencia a las presentaciones en Plaza Central del Scala, comunicando cada show como una experiencia musical diferente: íntima, nostálgica y visualmente cuidada.</p>
+          </div>
+          <div class="comms-card">
+            <h3>Canales involucrados</h3>
+            <p>Scala funcionará como canal institucional y anfitrión de la experiencia. La Banda del Flashback será el canal artístico oficial. Jorge Silva y César Galarza reforzarán el mensaje desde una perspectiva personal, musical y de backstage.</p>
+          </div>
+        </div>
+
+        <div class="comms-card" style="margin-top:18px;">
+          <h3>Base orgánica disponible</h3>
+          <div class="followers">
+            <div class="follower-box"><strong>2.682</strong><span>Instagram · Banda del Flashback</span></div>
+            <div class="follower-box"><strong>1.118</strong><span>Instagram · Jorge Silva</span></div>
+            <div class="follower-box"><strong>5.334</strong><span>Instagram · César Galarza</span></div>
+            <div class="follower-box"><strong>27.000</strong><span>Facebook · Banda del Flashback</span></div>
+            <div class="follower-box"><strong>2.700</strong><span>Facebook · Jorge Silva</span></div>
+            <div class="follower-box"><strong>4.500</strong><span>Facebook · César Galarza</span></div>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <b>Semana -4</b>
+            <div>
+              <h4>Lanzamiento de la experiencia</h4>
+              <p>Publicación institucional desde Scala, presentación artística desde La Banda del Flashback y primer anuncio en stories de los integrantes.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <b>Semana -3</b>
+            <div>
+              <h4>Repertorio y nostalgia</h4>
+              <p>Carrusel o reel con canciones destacadas del repertorio. Stories con encuestas: “¿Cuál de estas canciones cantarías en vivo?”</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <b>Semana -2</b>
+            <div>
+              <h4>Experiencia y escenario</h4>
+              <p>Publicación del Key Visual por Scala y La Banda, mood del show, preparación del montaje, instrumentos, ensayos y enfoque visual de la experiencia.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <b>Semana -1</b>
+            <div>
+              <h4>Invitación final</h4>
+              <p>Reel de invitación, recordatorios en stories, cuenta regresiva y mensajes personales de los integrantes invitando al público a Scala.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <b>Día del show</b>
+            <div>
+              <h4>Cobertura en vivo</h4>
+              <p>Stories de montaje, prueba de sonido, backstage, llegada del público y fragmentos del show para reforzar la experiencia.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <b>Post show</b>
+            <div>
+              <h4>Resumen emocional</h4>
+              <p>Reel recap con mejores momentos, agradecimiento a Scala y llamado a estar atentos a la siguiente experiencia mensual.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-table">
+          <h3 style="font-size:28px; letter-spacing:-.04em;">Parrilla mensual sugerida</h3>
+          <table>
+            <thead><tr><th>Momento</th><th>Contenido</th><th>Formato</th><th>Responsable principal</th><th>Apoyo</th></tr></thead>
+            <tbody>
+              <tr><td>Semana -4</td><td>Lanzamiento institucional de la experiencia</td><td>Post / carrusel</td><td>Scala</td><td>Banda + integrantes</td></tr>
+              <tr><td>Semana -4</td><td>Presentación artística del concepto</td><td>Reel</td><td>Banda del Flashback</td><td>Scala repostea</td></tr>
+              <tr><td>Semana -3</td><td>Canciones del repertorio y dinámica de nostalgia</td><td>Carrusel / stories</td><td>Banda del Flashback</td><td>Integrantes</td></tr>
+              <tr><td>Semana -3</td><td>Mini interpretación o ensayo</td><td>Reel corto</td><td>Integrantes</td><td>Banda repostea</td></tr>
+              <tr><td>Semana -2</td><td>Key Visual oficial y ubicación</td><td>Post / stories</td><td>Scala</td><td>Banda + integrantes</td></tr>
+              <tr><td>Semana -2</td><td>Mood del escenario y preparación</td><td>Reel / stories</td><td>Banda del Flashback</td><td>Integrantes</td></tr>
+              <tr><td>Semana -1</td><td>Invitación oficial y recordatorio final</td><td>Reel</td><td>Scala + Banda</td><td>Integrantes</td></tr>
+              <tr><td>Día del show</td><td>Backstage, montaje y cobertura en vivo</td><td>Stories</td><td>Scala + Banda</td><td>Integrantes</td></tr>
+              <tr><td>Post show</td><td>Resumen emocional y agradecimiento</td><td>Reel recap</td><td>Banda del Flashback</td><td>Scala + integrantes</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-head" style="margin-top:42px;">
+          <h2>Responsabilidades</h2>
+          <p>La campaña debe sentirse coordinada, pero no repetitiva. Cada actor comunica desde su rol para construir alcance, credibilidad y asistencia.</p>
+        </div>
+
+        <div class="responsibility-grid">
+          <div class="responsibility-card">
+            <h3>Scala</h3>
+            <ul>
+              <li>Publicar el anuncio institucional de cada experiencia.</li>
+              <li>Difundir el Key Visual oficial en feed, stories y pantallas internas si aplica.</li>
+              <li>Publicar recordatorios semanales y el día del show.</li>
+              <li>Repostear contenidos de La Banda y de los integrantes.</li>
+              <li>Comunicar ubicación: Plaza Central del Scala.</li>
+            </ul>
+          </div>
+          <div class="responsibility-card">
+            <h3>La Banda del Flashback</h3>
+            <ul>
+              <li>Publicar el contenido artístico oficial.</li>
+              <li>Presentar concepto, repertorio y experiencia mensual.</li>
+              <li>Compartir reels de ensayo, mini covers y preparación.</li>
+              <li>Activar stories con encuestas de canciones y nostalgia.</li>
+              <li>Publicar recap posterior al show.</li>
+            </ul>
+          </div>
+          <div class="responsibility-card">
+            <h3>Integrantes</h3>
+            <ul>
+              <li>Humanizar la comunicación desde sus perfiles personales.</li>
+              <li>Publicar invitaciones en video selfie.</li>
+              <li>Compartir backstage, ensayos y comentarios sobre canciones.</li>
+              <li>Repostear publicaciones de Scala y La Banda.</li>
+              <li>Generar cercanía con llamados directos a asistir.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inversion">
+      <div class="container">
+        <div class="section-head">
+          <h2>Inversión por show</h2>
+          <p>Valor propuesto para cada presentación de 60 minutos en Plaza Central del Scala, bajo el formato artístico y técnico descrito.</p>
+        </div>
+        <div class="pricing-card">
+          <div class="price-block">
+            <div>
+              <span>Valor por show</span>
+              <strong>$750</strong>
+              <small>más impuestos, si aplica</small>
+            </div>
+          </div>
+          <div class="includes">
+            <h3>Incluye</h3>
+            <ul>
+              <li>Show artístico de La Banda del Flashback.</li>
+              <li>Amplificación en el front para 80 pax.</li>
+              <li>Consola digital.</li>
+              <li>Sistema de microfonía inalámbrica.</li>
+              <li>Sistema de monitoreo inalámbrico.</li>
+              <li>Técnico de sonido para cada show.</li>
+              <li>Montaje y desmontaje de acuerdo a los horarios coordinados con Scala.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="produccion">
+      <div class="container">
+        <div class="section-head">
+          <h2>Resumen de producción</h2>
+          <p>La diferenciación mensual no depende de aumentar músicos, sino de construir una identidad escénica clara por experiencia.</p>
+        </div>
+        <div class="closing">
+          <div class="card">
+            <h3>Formato musical</h3>
+            <p>Guitarra, teclados y cantante principal en vivo. Bajo y percusión secuenciados para sostener el show sin perder sensación acústica.</p>
+          </div>
+          <div class="card">
+            <h3>Variables de cambio mensual</h3>
+            <ul>
+              <li>Cantante principal y tesitura.</li>
+              <li>Repertorio completo.</li>
+              <li>Key visual, cromática e iluminación.</li>
+              <li>Vestuario y actitud escénica.</li>
+              <li>Narrativa entre canciones.</li>
+              <li>Visuales de fondo o piezas promocionales.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        Propuesta visual y musical · La Banda del Flashback · 2026
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
